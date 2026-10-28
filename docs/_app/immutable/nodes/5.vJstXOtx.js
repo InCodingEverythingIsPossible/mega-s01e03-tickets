@@ -1,0 +1,1 @@
+export{n as component}from"../chunks/kdIx0In_.js";

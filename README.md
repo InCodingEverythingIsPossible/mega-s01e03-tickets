@@ -4,7 +4,7 @@ The page about the problems in #4471, signed (desk ref DR-8W1P-8JMY):
 
 - source: [`src/routes/kb/incidents/4471-problems/+page.svx`](src/routes/kb/incidents/4471-problems/+page.svx)
 - as the desk will see it: [`src/routes/kb/incidents/4471-problems/page.png`](src/routes/kb/incidents/4471-problems/page.png), built HTML in [`rendered/kb/incidents/4471-problems.html`](rendered/kb/incidents/4471-problems.html)
-- tickets: [#1 parser](../../issues/1), [#2 hint](../../issues/2), [#4 one-day move](../../issues/4)
+- tickets: [#1 parser](../../issues/1), [#2 hint](../../issues/2)
 - `render/` holds the SvelteKit + mdsvex setup that built `rendered/`.
 
 ---

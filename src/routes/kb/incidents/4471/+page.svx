@@ -22,7 +22,7 @@ first. The fix is queued.
 Known. One issue, one fix queued.
 </Callout>
 
-Read next: [#4471 · three problems, not one](/kb/incidents/4471-problems). The reports are three
+Read next: [#4471 · two problems, not one](/kb/incidents/4471-problems). The reports are two
 problems, each with its own ticket.
 
 ## What was merged
