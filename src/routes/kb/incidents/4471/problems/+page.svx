@@ -25,7 +25,7 @@ Read with the reports' bodies, that is three problems. Each now has its own tick
 
 - the `parser` row, less the reports read as a one-day move: <a href="{REPO}/1">#1</a>
 - the `hint` row, the one marked "no ticket of its own": <a href="{REPO}/2">#2</a>
-- the reports read as a one-day move, in the note under the table: <a href="{REPO}/3">#3</a>
+- the reports read as a one-day move, in the note under the table: <a href="{REPO}/4">#4</a>
 
 <Callout kind="warn">
 The fix queued for #4471 fixes the parser. It does not fix the other two: their reports stay open
