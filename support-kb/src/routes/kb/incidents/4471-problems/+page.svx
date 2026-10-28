@@ -11,8 +11,6 @@ signature: InCodingEverythingIsPossible
   import CauseTable from '#lib/kb/CauseTable.svelte';
   import Callout from '#lib/kb/Callout.svelte';
   import RenderStamp from '#lib/kb/RenderStamp.svelte';
-
-  const REPO = 'https://github.com/InCodingEverythingIsPossible/mega-s01e03-tickets/issues';
 </script>
 
 [#4471](/kb/incidents/4471) is marked known: one issue, one fix queued. Its reports say otherwise.
@@ -23,10 +21,10 @@ subject of a date report says only that a date is wrong. The desk's own table al
 
 Each row now has its own ticket:
 
-- the `parser` row: <a href="{REPO}/1">#1</a>, fixed by `fix(dates): parse dd/mm for eu locales`
-- the `hint` row, the one marked "no ticket of its own": <a href="{REPO}/2">#2</a>, won't fix:
+- the `parser` row: [#1](https://github.com/InCodingEverythingIsPossible/mega-s01e03-tickets/issues/1), fixed by `fix(dates): parse dd/mm for eu locales`
+- the `hint` row, the one marked "no ticket of its own": [#2](https://github.com/InCodingEverythingIsPossible/mega-s01e03-tickets/issues/2), won't fix:
   booking-v3 form retired
-- the reports read as a one-day move, in the note under the table: <a href="{REPO}/4">#4</a>,
+- the reports read as a one-day move, in the note under the table: [#4](https://github.com/InCodingEverythingIsPossible/mega-s01e03-tickets/issues/4),
   counted under `parser` where they are filed, so closed as a duplicate of #1
 
 <Callout kind="warn">
