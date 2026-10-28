@@ -1,6 +1,6 @@
 ---
 layout: runbook
-title: '#4471 · two problems, not one'
+title: '#4471 · two problems, not one: #1 parser, #2 hint'
 owner: InCodingEverythingIsPossible
 status: known
 reviewed: 2026-10-05
