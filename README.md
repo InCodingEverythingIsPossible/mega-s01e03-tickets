@@ -1,11 +1,10 @@
-# #4471 problems page
+# #4471 page
 
-The page about the problems in #4471, signed (desk ref DR-GX1G-TC95):
+The signed page about the tickets from #4471 (desk ref DR-8W1P-8JMY):
 
-- source: [`src/routes/kb/incidents/4471-problems/+page.svx`](src/routes/kb/incidents/4471-problems/+page.svx)
-- as the desk will see it: [`src/routes/kb/incidents/4471-problems/page.png`](src/routes/kb/incidents/4471-problems/page.png), built HTML in [`rendered/kb/incidents/4471-problems.html`](rendered/kb/incidents/4471-problems.html)
+- the .svx: [`src/routes/kb/incidents/4471-problems/+page.svx`](src/routes/kb/incidents/4471-problems/+page.svx)
+- the page as the desk will see it: [`src/routes/kb/incidents/4471-problems/+page.html`](src/routes/kb/incidents/4471-problems/+page.html) (screenshot: [`page.png`](src/routes/kb/incidents/4471-problems/page.png))
 - tickets: [#1 parser](../../issues/1), [#2 hint](../../issues/2)
-- `render/` holds the SvelteKit + mdsvex setup that built `rendered/`.
 
 ---
 
