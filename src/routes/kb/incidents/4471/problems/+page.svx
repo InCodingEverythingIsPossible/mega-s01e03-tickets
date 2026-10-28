@@ -23,9 +23,6 @@ into three problems. Each now has its own ticket.
 
 <ProblemTable ticket={4471} {issues} />
 
-Counts follow the desk's CauseTable: a one-day move stays counted under `parser`, where it is filed
-by tenant, and is counted again in its own row.
-
 <Callout kind="warn">
 The fix queued for #4471 fixes the parser. It does not fix the other two: their reports stay open
 after it ships.
@@ -46,8 +43,7 @@ the hint says.
 Toronto got Monday." "The invite arrived before I made the booking." "Every booking in June is one
 day off." These are the reports the desk already read as one-day moves (`desk-notes.json`). A month
 swap never moves a date by one day, so these are their own bug: a time-zone or daylight-saving
-shift. The table counts them under `parser`, where they are filed by tenant; they have their own
-ticket.
+shift. CauseTable files them under `parser` by tenant; here they have their own row.
 
 ## Why intake got the split wrong
 

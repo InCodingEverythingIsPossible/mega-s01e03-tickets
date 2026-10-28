@@ -4,9 +4,9 @@
   import { groupByCause, uniqueById, type Report } from '#lib/kb/causes';
   import { tenantOf } from '#lib/kb/locales';
 
-  // One row per problem in a merged ticket, counted the way CauseTable counts: causes.ts places a
-  // report by tenant and channel, and the desk's one-day-move reads (desk-notes.json) stay counted
-  // where they're filed. They are a different bug, so they also get a row and a ticket of their own.
+  // One row per problem in a merged ticket. causes.ts places a report by tenant and channel; the
+  // desk's one-day-move reads (desk-notes.json) are a different bug, so they get a row of their own
+  // instead of a footnote.
   let { ticket, issues = {} }: { ticket: number; issues?: Record<string, string> } = $props();
 
   const LABEL: Record<string, string> = {
@@ -21,7 +21,7 @@
   const oneDay = $derived(merged.filter((r) => notes.oneDayMove.includes(r.id)));
   const problems = $derived(
     [
-      ...groupByCause(merged, tenantOf),
+      ...groupByCause(merged.filter((r) => !notes.oneDayMove.includes(r.id)), tenantOf),
       ...groupByCause(oneDay, () => undefined).map((g) => ({ ...g, cause: 'one-day' as const })),
     ].sort((a, b) => b.reports.length - a.reports.length),
   );
