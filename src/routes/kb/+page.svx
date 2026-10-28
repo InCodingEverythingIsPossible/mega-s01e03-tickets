@@ -15,6 +15,9 @@ What the support desk knows, kept next to the code that knows it. One desk, ever
 
 Start with [triage](/kb/triage/dedupe) if you are new on the desk.
 
+Working on #4471? Read [#4471 · three problems, not one](/kb/incidents/4471-problems) first: its
+reports are three problems, each with its own ticket.
+
 ## Pages
 
 <KbIndex />
