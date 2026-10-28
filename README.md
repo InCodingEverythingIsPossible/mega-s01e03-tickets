@@ -1,6 +1,6 @@
 # #4471 problems page
 
-The kb export lives in [`support-kb/`](support-kb/), as it came in the zip. The page about the problems in #4471, signed (desk ref DR-BY46-AQRK):
+The kb export lives in [`support-kb/`](support-kb/), as it came in the zip. The page about the problems in #4471, signed (desk ref DR-Z7K1-YFPJ):
 
 - source: [`support-kb/src/routes/kb/incidents/4471-problems/+page.svx`](support-kb/src/routes/kb/incidents/4471-problems/+page.svx)
 - as the desk will see it: [`support-kb/src/routes/kb/incidents/4471-problems/page.png`](support-kb/src/routes/kb/incidents/4471-problems/page.png), built HTML in [`rendered/kb/incidents/4471-problems.html`](rendered/kb/incidents/4471-problems.html)
