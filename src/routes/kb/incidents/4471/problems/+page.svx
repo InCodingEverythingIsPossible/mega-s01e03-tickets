@@ -8,11 +8,12 @@ signature: InCodingEverythingIsPossible
 ---
 
 <script>
-  import CauseTable from '#lib/kb/CauseTable.svelte';
+  import ProblemTable from '#lib/kb/ProblemTable.svelte';
   import Callout from '#lib/kb/Callout.svelte';
   import RenderStamp from '#lib/kb/RenderStamp.svelte';
 
   const REPO = 'https://github.com/InCodingEverythingIsPossible/mega-s01e03-tickets/issues';
+  const issues = { parser: `${REPO}/1`, hint: `${REPO}/2`, 'one-day': `${REPO}/3` };
 </script>
 
 [#4471](/kb/incidents/4471) is marked known: one issue, one fix queued. Its reports say otherwise.
@@ -20,13 +21,10 @@ They were merged on subject line ([decision 0001](/kb/decisions/0001-dedupe-by-s
 subject of a date report says only that a date is wrong. Read by tenant, channel and body, they fall
 into three problems. Each now has its own ticket.
 
-<CauseTable ticket={4471} />
+<ProblemTable ticket={4471} {issues} />
 
-| problem | counted in the table as | ticket |
-| --- | --- | --- |
-| `parser` | the `parser` row | <a href="{REPO}/1">#1</a> |
-| `hint` | the `hint` row | <a href="{REPO}/2">#2</a> |
-| one-day move | the note under `parser`: filed there by tenant, a bug of its own | <a href="{REPO}/3">#3</a> |
+Counts follow the desk's CauseTable: a one-day move stays counted under `parser`, where it is filed
+by tenant, and is counted again in its own row.
 
 <Callout kind="warn">
 The fix queued for #4471 fixes the parser. It does not fix the other two: their reports stay open
