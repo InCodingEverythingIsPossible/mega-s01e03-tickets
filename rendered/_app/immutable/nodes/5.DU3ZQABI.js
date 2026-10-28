@@ -1,0 +1,1 @@
+export{n as component}from"../chunks/OtR3PL5j.js";
