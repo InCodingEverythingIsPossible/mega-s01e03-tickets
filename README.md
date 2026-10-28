@@ -1,6 +1,6 @@
 # #4471 problems page
 
-The page about the problems in #4471, signed (desk ref DR-8W1P-8JMY):
+The page about the problems in #4471, signed (desk ref DR-GX1G-TC95):
 
 - source: [`src/routes/kb/incidents/4471-problems/+page.svx`](src/routes/kb/incidents/4471-problems/+page.svx)
 - as the desk will see it: [`src/routes/kb/incidents/4471-problems/page.png`](src/routes/kb/incidents/4471-problems/page.png), built HTML in [`rendered/kb/incidents/4471-problems.html`](rendered/kb/incidents/4471-problems.html)

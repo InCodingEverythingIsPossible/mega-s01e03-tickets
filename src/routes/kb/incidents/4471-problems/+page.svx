@@ -4,7 +4,7 @@ title: '#4471 · two problems, not one'
 owner: InCodingEverythingIsPossible
 status: accepted
 reviewed: 2026-10-28
-signature: InCodingEverythingIsPossible
+signature: claude-opus-5-5
 ---
 
 <script>

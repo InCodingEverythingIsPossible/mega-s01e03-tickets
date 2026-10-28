@@ -42,7 +42,7 @@ Intake tags a report from the reporter's browser: an `en-US` browser is tagged `
 - A merge on subject line counts symptoms. Different bugs share a symptom, so the count was right and the "one issue" was not.
 - Before a big ticket goes to known, read the rows that don't fit the pattern.
 
-`desk ref` **DR-8W1P-8JMY**
+`desk ref` **DR-GX1G-TC95**
 
 ---
 
