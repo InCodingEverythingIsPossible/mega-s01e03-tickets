@@ -1,0 +1,61 @@
+---
+layout: runbook
+title: '#4471 · three problems, not one'
+owner: support desk
+status: open
+reviewed: 2026-10-28
+signature: InCodingEverythingIsPossible
+---
+
+<script>
+  import ProblemTable from '#lib/kb/ProblemTable.svelte';
+  import Callout from '#lib/kb/Callout.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+
+  const REPO = 'https://github.com/InCodingEverythingIsPossible/mega-s01e03-tickets/issues';
+  const issues = { parser: `${REPO}/1`, hint: `${REPO}/2`, 'one-day': `${REPO}/3` };
+</script>
+
+[#4471](/kb/incidents/4471) is marked known: one issue, one fix queued. Its reports say otherwise.
+They were merged on subject line ([decision 0001](/kb/decisions/0001-dedupe-by-subject)), and the
+subject of a date report says only that a date is wrong. Read by tenant, channel and body, they fall
+into three problems. Each now has its own ticket.
+
+<ProblemTable ticket={4471} {issues} />
+
+<Callout kind="warn">
+The fix queued for #4471 fixes the parser. It does not fix the other two: their reports stay open
+after it ships.
+</Callout>
+
+## The problems
+
+**`parser`: the shared parser reads every date month first.** A day-first tenant books 2 December
+and the invite says 12 February. Every channel, every tenant on file.
+
+**`hint`: booking-v3 prints `MM/DD/YYYY` under its date field.** Alder Physio, Copper Studio and
+Pale Harbour run booking-v3 in day-first locales. Their people type what the hint tells them, month
+first, and the form reads it the tenant's way. The result looks like the parser bug, but only through
+the form, and the parser fix leaves it in place. The fix is the hint, or reading the field the way
+the hint says.
+
+**`one-day`: a date moves by one day, not by a swap.** "Client in Lisbon got Tuesday. Client in
+Toronto got Monday." "The invite arrived before I made the booking." "Every booking in June is one
+day off." These are the reports the desk already read as one-day moves (`desk-notes.json`). A month
+swap never moves a date by one day, so these are their own bug: a time-zone or daylight-saving
+shift. CauseTable files them under `parser` by tenant; here they have their own row.
+
+## Why intake got the split wrong
+
+Intake tags a report from the reporter's browser: an `en-US` browser is tagged `hint`. The cause
+depends on the tenant's locale and form (`causes.ts`), so intake's tags and the table above
+disagree. Count by tenant, not by browser.
+
+## Lessons
+
+- A merge on subject line counts symptoms. Different bugs share a symptom, so the count was right
+  and the "one issue" was not.
+- Before a big ticket goes to known, read the rows that don't fit the pattern. The desk had found
+  the one-day moves, and they went into a footnote.
+
+<RenderStamp {signature} />
