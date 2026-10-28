@@ -6,5 +6,5 @@ import { mdsvex } from 'mdsvex';
 export default {
   extensions: ['.svelte', '.svx'],
   preprocess: [vitePreprocess(), mdsvex({ extensions: ['.svx'], layout: { runbook: fileURLToPath(new URL('./src/lib/layouts/runbook.svelte', import.meta.url)) } })],
-  kit: { adapter: adapter({ strict: false }), alias: { '#lib': 'src/lib' }, prerender: { handleHttpError: 'warn', entries: ['*', '/kb/incidents/4471/problems'] } },
+  kit: { adapter: adapter({ strict: false }), alias: { '#lib': 'src/lib' }, prerender: { handleHttpError: 'warn', entries: ['*', '/kb/incidents/4471-problems'] } },
 };
