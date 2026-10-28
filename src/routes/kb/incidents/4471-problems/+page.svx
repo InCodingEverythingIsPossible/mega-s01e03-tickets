@@ -4,7 +4,7 @@ title: '#4471 · two problems, not one: #1 parser, #2 hint'
 owner: InCodingEverythingIsPossible
 status: known
 reviewed: 2026-10-05
-signature: InCodingEverythingIsPossible
+signature: v1.eyJzdG9yeSI6Im9mZiIsInN1YiI6IjM0NjEiLCJhdWQiOiJjaGFsbGVuZ2U6d2hhdC1pdC1zaG93cyIsImlhdCI6MTc5MzE4NjQzNywiZXhwIjoxNzkzMjcyODM3fQ.52XAHlBj6MCKaEX8-s-k_j2sUb9BTVChWkmv7LMlwLQ
 ---
 
 <script>
