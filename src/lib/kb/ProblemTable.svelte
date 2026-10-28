@@ -1,30 +1,22 @@
 <script lang="ts">
   import reports from '#lib/data/reports-4471.json';
   import notes from '#lib/data/desk-notes.json';
-  import { groupByCause, uniqueById, type Report } from '#lib/kb/causes';
+  import { groupByCause, readAs, uniqueById, type Report } from '#lib/kb/causes';
   import { tenantOf } from '#lib/kb/locales';
 
-  // One row per problem in a merged ticket. causes.ts places a report by tenant and channel; the
-  // desk's one-day-move reads (desk-notes.json) are a different bug, so they get a row of their own
-  // instead of a footnote.
+  // One row per problem in a merged ticket, counted the way CauseTable counts, with the ticket each
+  // problem now has. Reports the desk read differently (desk-notes.json) stay counted where they're
+  // filed, footnoted under it.
   let { ticket, issues = {} }: { ticket: number; issues?: Record<string, string> } = $props();
 
   const LABEL: Record<string, string> = {
     parser: 'shared parser reads day-first dates month first',
     hint: 'booking-v3 form hints MM/DD/YYYY to day-first tenants',
-    'one-day': 'date moves by one day',
     unplaced: 'no tenant on file',
   };
 
-  const rows = $derived(uniqueById(reports as Report[]).length);
   const merged = $derived(uniqueById(reports as Report[]).filter((r) => r.mergedInto === ticket));
-  const oneDay = $derived(merged.filter((r) => notes.oneDayMove.includes(r.id)));
-  const problems = $derived(
-    [
-      ...groupByCause(merged.filter((r) => !notes.oneDayMove.includes(r.id)), tenantOf),
-      ...groupByCause(oneDay, () => undefined).map((g) => ({ ...g, cause: 'one-day' as const })),
-    ].sort((a, b) => b.reports.length - a.reports.length),
-  );
+  const problems = $derived(groupByCause(merged, tenantOf));
   const tags = (g: { taggedAs: Record<string, number> }) =>
     Object.entries(g.taggedAs)
       .sort((a, b) => b[1] - a[1])
@@ -33,8 +25,8 @@
 </script>
 
 <p class="sum">
-  <strong>{(reports as Report[]).length}</strong> rows in the export · <strong>{merged.length}</strong> unique reports
-  merged into #{ticket} · <strong>{problems.length}</strong> problems
+  <strong>{merged.length}</strong> reports merged into #{ticket} · <strong>{problems.length}</strong>
+  {problems.length === 1 ? 'problem' : 'problems'}
 </p>
 
 <table>
@@ -55,7 +47,12 @@
   </tbody>
 </table>
 
-<p class="note">{rows} ids, {merged.length} of them merged into #{ticket}; the export's overlapping pages repeat {(reports as Report[]).length - rows} rows.</p>
+{#each problems as p (p.cause)}
+  {@const moved = readAs(p, notes.oneDayMove)}
+  {#if moved}
+    <p class="note">{moved} reports read as a one-day move; filed under <code>{p.cause}</code> by tenant.</p>
+  {/if}
+{/each}
 
 <style>
   .sum { font-size: 1.1rem; }

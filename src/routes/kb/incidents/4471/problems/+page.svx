@@ -1,6 +1,6 @@
 ---
 layout: runbook
-title: '#4471 · three problems, not one'
+title: '#4471 · two problems, not one'
 owner: support desk
 status: open
 reviewed: 2026-10-28
@@ -13,19 +13,19 @@ signature: InCodingEverythingIsPossible
   import RenderStamp from '#lib/kb/RenderStamp.svelte';
 
   const REPO = 'https://github.com/InCodingEverythingIsPossible/mega-s01e03-tickets/issues';
-  const issues = { parser: `${REPO}/1`, hint: `${REPO}/2`, 'one-day': `${REPO}/3` };
+  const issues = { parser: `${REPO}/1`, hint: `${REPO}/2` };
 </script>
 
 [#4471](/kb/incidents/4471) is marked known: one issue, one fix queued. Its reports say otherwise.
 They were merged on subject line ([decision 0001](/kb/decisions/0001-dedupe-by-subject)), and the
-subject of a date report says only that a date is wrong. Read by tenant, channel and body, they fall
-into three problems. Each now has its own ticket.
+subject of a date report says only that a date is wrong. Read by tenant and channel, they fall into
+two problems. Each now has its own ticket.
 
 <ProblemTable ticket={4471} {issues} />
 
 <Callout kind="warn">
-The fix queued for #4471 fixes the parser. It does not fix the other two: their reports stay open
-after it ships.
+The fix queued for #4471 fixes the parser. It does not fix the booking-v3 hint: those reports stay
+open after it ships.
 </Callout>
 
 ## The problems
@@ -39,11 +39,13 @@ first, and the form reads it the tenant's way. The result looks like the parser 
 the form, and the parser fix leaves it in place. The fix is the hint, or reading the field the way
 the hint says.
 
-**`one-day`: a date moves by one day, not by a swap.** "Client in Lisbon got Tuesday. Client in
-Toronto got Monday." "The invite arrived before I made the booking." "Every booking in June is one
-day off." These are the reports the desk already read as one-day moves (`desk-notes.json`). A month
-swap never moves a date by one day, so these are their own bug: a time-zone or daylight-saving
-shift. CauseTable files them under `parser` by tenant; here they have their own row.
+## Read as a one-day move
+
+Some `parser` reports describe a date that moves by one day, not a swap: "Client in Lisbon got
+Tuesday. Client in Toronto got Monday." "The invite arrived before I made the booking." The desk
+read them that way (`desk-notes.json`) and counts them where they are filed, under `parser`. A swap
+never moves a date by one day. Re-read them after the parser fix ships: if they stay, they are a
+time-zone bug and need a ticket of their own.
 
 ## Why intake got the split wrong
 
@@ -55,7 +57,6 @@ disagree. Count by tenant, not by browser.
 
 - A merge on subject line counts symptoms. Different bugs share a symptom, so the count was right
   and the "one issue" was not.
-- Before a big ticket goes to known, read the rows that don't fit the pattern. The desk had found
-  the one-day moves, and they went into a footnote.
+- Before a big ticket goes to known, read the rows that don't fit the pattern.
 
 <RenderStamp {signature} />
