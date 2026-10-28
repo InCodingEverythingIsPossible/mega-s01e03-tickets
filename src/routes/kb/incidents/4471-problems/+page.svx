@@ -56,6 +56,7 @@ disagree. Count by tenant, not by browser.
 
 - A merge on subject line counts symptoms. Different bugs share a symptom, so the count was right
   and the "one issue" was not.
-- Before a big ticket goes to known, read the rows that don't fit the pattern.
+- Before a big ticket goes to known, read the rows that don't fit the pattern. The desk had the
+  one-day moves in a note.
 
 <RenderStamp {signature} />
